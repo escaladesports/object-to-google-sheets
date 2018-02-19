@@ -2,17 +2,16 @@
   "name": "object-to-google-sheets",
   "version": "0.0.0",
   "keywords": [
-    "javascript",
-    "node",
-    "module",
-    "boilerplate"
+    "object",
+    "google",
+    "sheets",
+    "api"
   ],
   "main": "dist/index.js",
-  "browser": "dist-browser/index.js",
   "author": "Kennedy Rose <krose@escaladesports.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/escaladesports/javascript-module-boilerplate.git"
+    "url": "https://github.com/escaladesports/object-to-google-sheets.git"
   },
   "license": "MIT",
   "scripts": {
@@ -24,7 +23,7 @@
     "prepublishOnly": "npm run build",
     "reset": "esca-scripts reset",
     "test": "esca-scripts test",
-    "travis": "opn https://travis-ci.org/escaladesports/javascript-module-boilerplate/branches"
+    "travis": "opn https://travis-ci.org/escaladesports/object-to-google-sheets/branches"
   },
   "devDependencies": {
     "esca-scripts": "^0.13.1",
