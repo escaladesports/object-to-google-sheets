@@ -45,12 +45,37 @@ export default async function() {
 							sheetId,
 							dimension: 'ROWS',
 							startIndex: 1,
-							endIndex: 2,
+							endIndex: 3,
 						},
-						//insertBefore: true
-					},
+					}
+				},
+				{
+					updateCells: {
+						rows: [
+							{
+								values: [
+									{
+										userEnteredValue: {
+											stringValue: 'test@gmail.com'
+										}
+									},
+									{
+										userEnteredValue: {
+											stringValue: 'Other Name'
+										}
+									},
+								]
+							}
+						],
+						range: {
+							sheetId,
+							startRowIndex: 1,
+							endRowIndex: 2,
+						},
+						fields: '*'
+					}
 				}
-			]
+			],
 		},
 		auth
 	}
