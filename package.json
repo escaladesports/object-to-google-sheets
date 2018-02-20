@@ -20,14 +20,28 @@
     "build:main": "esca-scripts build --input './src/index.js' --output './dist/index.js' --babel --component",
     "build:browser": "esca-scripts build --input './src/index.js' --output './dist-browser/index.js' --component --browser --minify --name moduleBoilerplate",
     "dev": "esca-scripts dev ---input './dev/dev.js, ./dev/index.html' --browser",
+    "encrypt": "envdotjs",
     "prepublishOnly": "npm run build",
     "reset": "esca-scripts reset",
     "test": "esca-scripts test",
-    "travis": "opn https://travis-ci.org/escaladesports/object-to-google-sheets/branches"
+    "travis": "opn https://travis-ci.org/escaladesports/object-to-google-sheets/branches",
+    "unencrypt": "envdotjs --unencrypt"
   },
   "devDependencies": {
+    "envdotjs": "^1.1.4",
     "esca-scripts": "^0.13.1",
     "npm-run-all": "^4.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "deep-eql": "^3.0.1",
+    "es6-promisify": "^6.0.0",
+    "google-auth-library": "^1.2.1",
+    "google-auto-auth": "^0.9.3",
+    "google-drive-sheets": "^1.3.0",
+    "google-sheets-manager": "^1.0.4",
+    "google-spreadsheet": "^2.0.4",
+    "googleapis": "^26.0.1",
+    "simple-sheets": "^1.1.1",
+    "simple-sheets-reader": "^2.0.2"
+  }
 }
