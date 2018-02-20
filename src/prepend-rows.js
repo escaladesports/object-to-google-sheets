@@ -1,4 +1,5 @@
 import { google } from 'googleapis'
+import { promisify } from 'es6-promisify'
 
 const sheets = google.sheets('v4')
 
@@ -54,14 +55,6 @@ export default async function() {
 			null
 		)
 	}
-	await new Promise((resolve, reject) => {
-		sheets.spreadsheets.batchUpdate(params, {}, (err, response) => {
-			if (err) {
-				reject(err);
-			}
-			else {
-				resolve(response)
-			}
-		})
-	})
+	let res = await promisify(sheets.spreadsheets.batchUpdate)(params, {})
+	return res
 }
