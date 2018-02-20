@@ -20,7 +20,7 @@ function authenticateGoogleSheets(clientEmail, privateKey) {
 
 function prepend(params, options = {}) {
 	return new Promise((resolve, reject) => {
-		sheets.spreadsheets.values.batchUpdate(params, options, (err, response) => {
+		sheets.spreadsheets.batchUpdate(params, options, (err, response) => {
 			if (err) {
 				reject(err);
 			}
@@ -36,32 +36,22 @@ export default async function() {
 	let sheetId = 0
 	const params = {
 		spreadsheetId: this.options.spreadsheetId,
-		//range: '!B2:Y2',
 		auth: auth,
-		"requests": [
-			{
-				"insertDimension": {
-					"range": {
-						"sheetId": sheetId,
-						"dimension": "COLUMNS",
-						"startIndex": 2,
-						"endIndex": 4
+		resource: {
+			requests: [
+				{
+					insertDimension: {
+						range: {
+							sheetId,
+							dimension: 'ROWS',
+							startIndex: 1,
+							endIndex: 2,
+						},
+						//insertBefore: true
 					},
-					"inheritBefore": true
 				}
-			},
-			{
-				"insertDimension": {
-					"range": {
-						"sheetId": sheetId,
-						"dimension": "ROWS",
-						"startIndex": 0,
-						"endIndex": 3
-					},
-					"inheritBefore": false
-				}
-			},
-		],
+			]
+		},
 		auth
 	}
 	await prepend(params)
